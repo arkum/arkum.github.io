@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    Welcome to Jekyll! - Queryinterface to know more
+    64-bit Installer for your VSTO add-in - Queryinterface to know more
     
   </title>
 
-  <meta name="description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...">
+  <meta name="description" content="&amp;nbsp; I hope this is my last post on VSTO. I am not an expert in VSTO and I am really excited about the new app model for Office 2013, which lets you create...">
 
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/jekyll/update/2019/06/01/welcome-to-jekyll.html">
+  <link rel="canonical" href="http://localhost:4000/technology/2013/08/12/64-bit-installer-for-your-vsto-add-in.html">
   <link rel="alternate" type="application/rss+xml" title="Queryinterface to know more" href="/feed.xml">
 
 </head>
@@ -67,11 +67,11 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>Welcome to Jekyll!</h1>
+            <h1>64-bit Installer for your VSTO add-in</h1>
             
             <span class="meta">Posted by
-              <a href="#"></a>
-              on June 01, 2019 &middot; <span class="reading-time" title="Estimated read time">
+              <a href="#">{"display_name"=>"arkumar", "login"=>"arkumar", "email"=>"ar.kumar@gmail.com", "url"=>""}</a>
+              on August 12, 2013 &middot; <span class="reading-time" title="Estimated read time">
   
    1 min  read </span>
 
@@ -86,20 +86,24 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-        <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+        <p>&nbsp;</p>
+<p align="justify">I hope this is my last post on VSTO. I am not an expert in VSTO and I am really excited about the new app model for Office 2013, which lets you create a cleaner powerful extensions for office products like Work, Excel, Outlook and even SharePoint</p>
+<p align="justify">However, If you are planning to create an installer for your VSTO add-in using the instructions <a href="http://msdn.microsoft.com/en-us/library/vstudio/cc442767.aspx#Obtain" target="_blank">here</a> and deploy on a 64-bit machine it will not work.This is because the registry key is different for 64-bit machines at the step where you create a .prq XML file and add Visual Studio 2010 Tools for Office Runtime as a pre-requisite. Instead of the XML file snippet, use the following one when you create a .prq file for 64-bit machines</p>
+<pre class="brush: xml;"><?xml version="1.0" encoding="UTF-8"?>
+<SetupPrereq>
+<conditions>
+    <condition Type="32" Comparison="2" Path="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSTO Runtime Setup\v4R" FileName="Version" ReturnValue="10.0.40303" Bits="2"></condition>
+</conditions>
+<files>
+    <file LocalFile="&amp;lt;ISProductFolder&amp;gt;\SetupPrerequisites\VSTOR\vstor_redist.exe" URL="http://go.microsoft.com/fwlink/?LinkId=140384" CheckSum="b6639489e159b854b6dc43d5cb539043" FileSize="0,40023024"></file>
+</files>
+<execute file="vstor_redist.exe" returncodetoreboot="1641,3010" requiresmsiengine="1">
+</execute>
+<properties Id="Your GUID goes here" Description="This prerequisite installs the most recent version of the Microsoft Visual Studio 2010 Tools for Office Runtime." >
+</properties>
 
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
-
-<p>Jekyll also offers powerful support for code snippets:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
-
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
-
+</SetupPrereq>
+</pre>
 
 
         <hr>
@@ -107,11 +111,11 @@
         <div class="clearfix">
 
           
-          <a class="btn btn-primary float-left" href="/technology/dynamics/2015/05/27/dynamics-crm-integration-using-azure-service-bus-part-i-using-service-bus-relays.html" data-toggle="tooltip" data-placement="top" title="Dynamics CRM Integration using Azure Service Bus - Part I - using Service Bus Relays">&larr; Previous<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/technology/2013/08/12/extract-team-foundation-settings-from-team-foundation-project-add-in.html" data-toggle="tooltip" data-placement="top" title="Extract Team Foundation settings from Team Foundation project add-in">&larr; Previous<span class="d-none d-md-inline">
               Post</span></a>
           
           
-          <a class="btn btn-primary float-right" href="/crm/2019/06/02/sixreasonscrmsucks.html" data-toggle="tooltip" data-placement="top" title="Six reasons CRM sucks">Next<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-right" href="/2013/08/12/55.html" data-toggle="tooltip" data-placement="top" title="55">Next<span class="d-none d-md-inline">
               Post</span> &rarr;</a>
           
 

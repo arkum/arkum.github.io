@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    Dynamics CRM Integration using Azure Service Bus - Part I - using Service Bus Relays - Queryinterface to know more
+    
+  </title>
+
+  <meta name="description" content="This is the first part of a series of posts about various options for integrating Dynamics CRM with external applications/services. I will update this space ...">
+
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/technology/dynamics/2015/05/27/dynamics-crm-integration-using-azure-service-bus-part-i-using-service-bus-relays.html">
+  <link rel="alternate" type="application/rss+xml" title="Queryinterface to know more" href="/feed.xml">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">Queryinterface to know more</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+
+  <header class="masthead">
+    
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Dynamics CRM Integration using Azure Service Bus - Part I - using Service Bus Relays</h1>
+            
+            <span class="meta">Posted by
+              <a href="#">{"display_name"=>"arkumar", "login"=>"arkumar", "email"=>"ar.kumar@gmail.com", "url"=>""}</a>
+              on May 27, 2015 &middot; <span class="reading-time" title="Estimated read time">
+  
+   13 mins  read </span>
+
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        <blockquote>
+<p>This is the first part of a series of posts about various options for integrating Dynamics CRM with external applications/services. I will update this space with links to the other posts in the series once I publish them.</p>
+</blockquote>
+<p>Since the release of Dynamics CRM 2011, Dynamics CRM had first class support for talking to azure service bus. Let us look at some of the options for making Dynamics CRM talk to external applications through Azure service Bus. In short we are going to look at how to make CRM talk to external systems using Azure Service Bus Relays, Queues and Topics &amp; Subscriptions.</p>
+<h2>Pre-requisites</h2>
+<h4>You understand Azure Service Bus Namespaces, Relays, Queues, Topics and Subscriptions</h4>
+<p>Hmmm, this is hard to explain. Distributed applications using messaging patterns is a broad topic where numerous books were written, lot of money is made by software vendors trying to make it &ldquo;look&rdquo; easier, and If I am not mistaken even research papers were published. While it is difficult to explain Azure Service Bus or Distributed Applications using messaging patterns in 15 minutes, If you are completely new to Azure Service Bus this short channel 9 video should help you get started.</p>
+<p><iframe height="540" src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Service-Bus-101-with-Dan-Rosanova/player" frameborder="0" width="560" allowfullscreen></iframe></p>
+<h4>Azure Service Bus namespace that you are intending to use should have an associated Access Control Service</h4>
+<p>Until recently an Azure Service Bus namespace you create will automatically be associated with an Access Control Service. However recent changes introduced to Azure portal doesnt create the ACS when you create a Service Bus namespace from the Web portal. However you can use PowerShell to create the namespace and ask azure to create a access control service associated with the namespace</p>
+<h4>Dynamics CRM integration Service Bus Relays</h4>
+<p>While considering an integration solution that leverages Azure Service Bus Relays, there are two main parts. The service you are exposing to Azure Service Bus using Relay should expose either <code>IServiceEndpointPlugin</code> or <code>ITwoWayServiceEndpointPlugin</code> interface. Both these interfaces have only one method <code>Execute</code> accepting <code>RemoteExecutionContext</code> as the sole parameter. As the name of the interfaces implies, <code>IServiceEndpointPlugin</code> <code>Execute</code> method is one way and does not return anything, while <code>ITwoWayServiceEndpointPlugin</code> <code>Execute</code> method return a string value. The other end of the solution lies with CRMs ability to talk to these service through Azure Service Bus. This is where things will get easier as you can leverage out of box capabilities exposed by CRM to talk to Azure Service Bus.</p>
+<p>There are two ways you can make Dynamics CRM to talk to an external service exposed using Azure Service Bus Relay. One of the obvious choices is to make your plugin talk to Azure Service Bus. However you can also achieve this without writing any code in Dynamics CRM.</p>
+<h5>Exposing a CRM Listener service using Service Relay</h5>
+<p>Exposing your CRM listener WCF service to Azure is just as same as exposing any other WCF service to Azure using Service Relay, except that the service contracts you expose should be either <code>IServiceEndpointPlugin</code> or <code>ITwoWayServiceEndpointPlugin</code> as shown below.</p>
+<p>It should be obvious from the above code snippet that the entire logic for this service sits inside the Execute method. For e.g as indicated by the comment in the above code snippet, you may want to write some code to call your ERP system and update/insert some records. In order to do whatever processing inside the Execute method, the <code>RemoteExecutionContext</code> parameter provides a wrapper for the IPluginExecutionContext (an implementation, to be precise) interface, you would normally use inside a traditional CRM Plug-in. Which means you have access to Pre and Post entity images and its attributes. The above code snippet prints the organization name from the RemoteExecutionContext parameter for demonstration.</p>
+<p>Once you have the service implementation defined it is time to expose the service to Azure using Service relay. The below code snippet should work for any WCF service. There is nothing CRM specific here other than the use of IServiceEndpointPlugin interface. The below code snippet does self-hosting of the service in a Console application. However you can always use IIS or any other host.</p>
+<pre class="brush: csharp;">// Service Bus details
+
+
+ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.Http;
+string servicenamespace = "";
+string issuerName = "";
+string issuerSecret = "";
+
+Uri address = ServiceBusEnvironment.CreateServiceUri(Uri.UriSchemeHttps, servicenamespace,
+"");
+
+TransportClientEndpointBehavior servicebusbehavior = new TransportClientEndpointBehavior();
+servicebusbehavior.TokenProvider = TokenProvider.CreateSharedSecretTokenProvider
+(issuerName, issuerSecret);
+
+//Configure binding
+WS2007HttpRelayBinding binding = new WS2007HttpRelayBinding();
+binding.Security.Mode = EndToEndSecurityMode.Transport;
+//Configure host
+ServiceHost host = new ServiceHost(typeof(CrmListener));
+host.AddServiceEndpoint(typeof(IServiceEndpointPlugin), binding, address);
+
+//Configure endpoints
+IEndpointBehavior serviceRegistrySettings = new ServiceRegistrySettings(DiscoveryType.Public);
+foreach (ServiceEndpoint endpoint in host.Description.Endpoints)
+{&nbsp;&nbsp;&nbsp;&nbsp; endpoint.EndpointBehaviors.Add(serviceRegistrySettings);&nbsp;&nbsp;&nbsp;&nbsp; endpoint.EndpointBehaviors.Add(servicebusbehavior);
+
+}
+try
+{
+//Open Host&nbsp;&nbsp;&nbsp;&nbsp; host.Open();
+}
+catch (TimeoutException ex)
+{&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine("Opening of service Timed out");
+}
+Console.ReadLine();
+</pre>
+<p>&nbsp;
+<p>&nbsp;
+<p>Once you run the the host application you can see the service endpoint appearing in Azure portal Service Bus &ndash;> Relays as shown below. Please note the name "Integrationtest" . This is the name of the endpoint of your service to which Dynamics CRM will talk to. You configure this endpoint while creating the service bus Uri.</p>
+<pre>Uri address = ServiceBusEnvironment.CreateServiceUri(Uri.UriSchemeHttps, servicenamespace,
+                                                    "IntegrationTest");
+
+</pre>
+<p><a href="http://iunknownme.com/blog/wp-content/uploads/2015/05/azurerelay.png"><img title="azurerelay" class="aligncenter" alt="azurerelay" src="http://iunknownme.com/blog/wp-content/uploads/2015/05/azurerelay_thumb.png" align="middle"></a></p>
+<h5>Configuring CRM to talk to the service through Azure Service Bus</h5>
+<p>Once we have the service ready (Service Relay to be technically correct</p>
+<p><img class="aligncenter" alt="Smile" src="http://iunknownme.com/blog/wp-content/uploads/2015/05/wlEmoticon-smile.png" align="middle"></p>
+<p>), we have to let CRM know how to talk to this service using Azure Service Bus. This is done by registering a service endpoint using the Plugin Registration Tool. However before starting , head over to CRM online, go to Settings->Customizations->Developer Resources and download the Windows Azure Service Bus Issuer Certificate. You will need this certificate while registering the service endpoint.</p>
+<p><a href="http://iunknownme.com/blog/wp-content/uploads/2015/05/crmcertificate.png"><img title="crmcertificate" class="aligncenter" alt="crmcertificate" src="http://iunknownme.com/blog/wp-content/uploads/2015/05/crmcertificate_thumb.png" align="middle"></a></p>
+<p>when you register a service endpoint, the important things to consider are the Path and Contract. Path should exactly match the name of the endpoint you have configured while configuring the Service Relay. In our example, it will be "IntegrationTest". Since our Service implements the one way <code>IServiceEndpointPlugin</code> interface, you should select the Contract as &ldquo;OneWay&rdquo;</p>
+<p><a href="http://iunknownme.com/blog/wp-content/uploads/2015/05/servieendpoint.png"><img title="servieendpoint" class="aligncenter" alt="servieendpoint" src="http://iunknownme.com/blog/wp-content/uploads/2015/05/servieendpoint_thumb.png" align="middle"></a></p>
+<p>After entering these values click Save &amp; Configure ACS button and the tool will prompt you for the certificate and the issuer name. Browse to the certificate you have downloaded earlier and give the issuer name as &ldquo;crm.dynamics.com&rdquo;. Once you click configure and Save the settings, Plugin Registration tool will automatically create the appropriate service identity settings for your service bus namespace in Azure. Once this configuration is complete you can head over to Azure management portal and verify the settings under the Access Control Service portal for your Namespace.</p>
+<p><a href="http://iunknownme.com/blog/wp-content/uploads/2015/05/acsserviceidentity.png"><img title="acsserviceidentity" class="aligncenter" alt="acsserviceidentity" src="http://iunknownme.com/blog/wp-content/uploads/2015/05/acsserviceidentity_thumb.png" align="middle"></a></p>
+<p>Next step is to register a step under the Service End point registration you have just created using the Plugin Registration Tool. Select the Service End point and from the Register Menu click Register New Step menu item. In the below screen I am registering a step to post the execution context to the registered Service Endpoint whenever an opportunity is updated.</p>
+<p><a href="http://iunknownme.com/blog/wp-content/uploads/2015/05/registernewstep.png"><img title="registernewstep" class="aligncenter" alt="registernewstep" src="http://iunknownme.com/blog/wp-content/uploads/2015/05/registernewstep_thumb.png" align="middle"></a></p>
+<p>Please note that Dynamics CRM will not allow you to select Execution Mode as Synchronous. You can test the integration by performing an update operation on opportunity entity. Make sure your service is running before you update the opportunity entity. If your service is not hit or you get any error while updating the opportunity, you can check the status of the integration in Dynamics CRM under Settings &ndash;> System Jobs.</p>
+<h4>Writing a two-way service</h4>
+<p>From the above example it should be clear that if you are using the out of box CRM support for communicating with Azure Service Bus, you will be following a fire and forget style communication with your service. What if you want to do some processing with the return value from the external service in your Dynamics CRM? At the services side you have to implement <code>ITwoWayServiceEndpointPlugin</code> interface. The following code shows a service which returns a simple string to the caller.</p>
+<p>In order to host the service I have avoided the lengthy WCF configuration code we did in the previous sample and moved all the configuration to the App.config file</p>
+<pre class="brush: csharp;">ServiceHost host = null;
+try
+{
+    host = new ServiceHost(typeof(CrmTwoWayListener));
+    host.Open();
+    Console.WriteLine("Service Started");
+    Console.WriteLine("Press Enter to stop the service");
+    Console.ReadLine();
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex);
+}
+finally
+{
+    host.Close();
+}
+</pre>
+<p>As before, if you run your service you can see the service appearing under the Service Relay in your Azure Portal under your Service Bus namespace.</p>
+<p>Once the service is up and running, you have to create a Plugin to talk to it using the SDK. This is relatively straightforward. The IServiceProvider container passed to the Execute method of the IPlugin interface, contains an instance of the IServiceEndpointNotificationService, which has one method Execute. Execute method expects you to pass an entity reference to the &ldquo;serviceendpoint&rdquo; system entity corresponding to the Service Endpoint you register in the Plugin Registration Tool. Which means you have to have the unique id of the Service Endpoint registration record, which you can grab it from the Plugin Registration tool and pass it as a configuration string to the Plugins constructor as shown in the code snippet below.</p>
+<pre class="brush: csharp;">public class ContactUpdatePlugin : IPlugin
+{
+    private Guid serviceendpointid;
+    public ContactUpdatePlugin(string config)
+    {
+        if(string.IsNullOrEmpty(config) || !Guid.TryParse(config,out serviceendpointid)){
+            throw new InvalidPluginExecutionException("Invalid Plugin Configuration");
+        }
+    }
+    public void Execute(IServiceProvider serviceProvider)
+    {
+        IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
+        ITracingService trace = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
+        IServiceEndpointNotificationService azureservice = (IServiceEndpointNotificationService)serviceProvider.GetService(typeof(IServiceEndpointNotificationService));
+
+        Entity entity = (Entity)context.InputParameters["Target"];
+        if(entity == null) throw new InvalidPluginExecutionException("Target Entity is null");
+
+        IOrganizationService orgservice = (IOrganizationService)serviceProvider.GetService(typeof(IOrganizationService));
+
+        if (orgservice == null)
+        {
+            IOrganizationServiceFactory serviceFactory =  (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+            if (serviceFactory == null) throw new InvalidPluginExecutionException("org service factory is null");
+            orgservice = serviceFactory.CreateOrganizationService(context.UserId);
+            if (orgservice == null) throw new InvalidPluginExecutionException("org service is null");
+        }
+
+        string response = null;
+        try
+        {
+            response = azureservice.Execute(new EntityReference("serviceendpoint", serviceendpointid), context);
+
+        }
+        catch(Exception ex)
+        {
+            trace.Trace("Exception while calling external service {0}", ex.ToString());
+            response = ex.Message;
+        }
+        try
+        {
+
+            var serviceContext = new OrganizationServiceContext(orgservice);
+            if (serviceContext == null) throw new InvalidPluginExecutionException("Service Context is null");
+            Entity post = new Entity("post");
+            post["regardingobjectid"] = new EntityReference(entity.LogicalName, entity.Id);
+            post["text"] = response;
+            post["source"] = new OptionSetValue(1);
+            post["type"] = new OptionSetValue(7);
+
+            serviceContext.AddObject(post);
+            serviceContext.SaveChanges();
+        }
+        catch (Exception ex)
+        {
+            if (ex.InnerException != null) throw new InvalidPluginExecutionException("Error updating post \n" + ex.InnerException.Message);
+            throw new InvalidPluginExecutionException("Error updating post \n" + ex.Message);
+        }
+    }
+}
+</pre>
+<p>To make things little more interesting I am creating a post entity with the return value from the service and attaching to the original contact entity so that we can verify the results side </p>
+<pre>                                                                                                                                                        
+
+</pre>
+<p>by side. Even if the external service returns an exception it will appear in the post. Registering this Plugin is same as registering any other Plugin except that you have to remember to update the secured and unsecured configuration strings with the unique id of the Service Endpoint registration. Please note that Dynamics CRM will allow you to register this as a Synchronous Plugin which means that until the external service returns or Plugin times out your operation will not complete.</p>
+<p><a href="http://iunknownme.com/blog/wp-content/uploads/2015/05/aftercontactupdate.png"><img title="aftercontactupdate" class="aligncenter" alt="aftercontactupdate" src="http://iunknownme.com/blog/wp-content/uploads/2015/05/aftercontactupdate_thumb.png" align="middle"></a></p>
+<p>I will cover Dynamics CRM integration using Azure Service Bus Queues and Topics in the coming posts in this series.</p>
+
+
+        <hr>
+
+        <div class="clearfix">
+
+          
+          <a class="btn btn-primary float-left" href="/technology/2015/05/26/procmon-fix-another-version-of-the-process-monitor-driver-is-already-loaded-a-reboot-is-required-to-run-this-version-error.html" data-toggle="tooltip" data-placement="top" title="procmon : fix &ldquo;Another version of the Process Monitor driver is already loaded. A reboot is required to run this version&rdquo; error">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/jekyll/update/2019/06/01/welcome-to-jekyll.html" data-toggle="tooltip" data-placement="top" title="Welcome to Jekyll!">Next<span class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:your-email@example.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://twitter.com/jekyllrb">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/jekyll">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy;  2019</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+
+</body>
+
+</html>
