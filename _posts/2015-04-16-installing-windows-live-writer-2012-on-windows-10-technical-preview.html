@@ -1,0 +1,46 @@
+---
+layout: post
+status: publish
+published: true
+title: Installing Windows Live Writer 2012 on Windows 10 Technical Preview
+author:
+  display_name: arkumar
+  login: arkumar
+  email: ar.kumar@gmail.com
+  url: ''
+author_login: arkumar
+author_email: ar.kumar@gmail.com
+wordpress_id: 132
+wordpress_url: http://iunknownme.com/blog/?p=132
+date: '2015-04-16 10:32:06 +1000'
+date_gmt: '2015-04-16 10:32:06 +1000'
+categories:
+- Technology
+tags:
+- live writer
+- blogging
+comments:
+- id: 10
+  author: 'HowTo: Live Writer auf Windows 10 installieren | WindowsBlog.at'
+  author_email: ''
+  author_url: http://windowsblog.at/2015/07/24/howto-live-writer-auf-windows-10-installieren/
+  date: '2015-07-24 12:33:08 +1000'
+  date_gmt: '2015-07-24 12:33:08 +1000'
+  content: "[&#8230;] Queryinterface: Installing Windows Live Writer 2012 on Windows
+    10 Technical Preview [&#8230;]"
+- id: 11
+  author: Windows Live Writer &ndash; Installation on a Windows 10 machine. |
+  author_email: ''
+  author_url: http://blog.arjunkrishna.us/2015/09/10/windows-live-writer-installation-on-a-windows-10-machine/
+  date: '2015-09-11 03:00:39 +1000'
+  date_gmt: '2015-09-11 03:00:39 +1000'
+  content: "[&#8230;] found this helpful hint here and thought of making this my first
+    [&#8230;]"
+---
+<p>&nbsp;</p>
+<p align="justify">Windows Live writer is my primary blog writing tool. I had tried many alternatives including Scribe &ndash; the Firefox add-on, various online blog editors and various desktop ones. However I kept going back to Live Writer and Kept installing it on every machine I use. However installing Live Writer on the recent Windows 10 Technical Preview 10049 build was nothing less than nightmarish. Once you start the installation, at around 30% my machine hangs. None of the control keys will work and I had to power down the machine by keeping the power button pressed. Surprisingly no log files or crash dumps were written by the installer.I tired capturing the crash dump using procdump without any luck.</p>
+<p align="justify">I captured the log file by running the installer from the command line with the /log: <Log File Name>. From the log file I could see that the machine hangs at the point where it tries to verify the signature of some downloaded file.</p>
+<p align="justify"><a href="http://iunknownme.com/blog/wp-content/uploads/2015/04/writererror.png"><img title="writererror" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="writererror" src="http://iunknownme.com/blog/wp-content/uploads/2015/04/writererror_thumb.png" width="644" height="56"></a></p>
+<p align="justify">Windows Live writer installation downloads a bunch of files which are windows updates and those updates doesn&rsquo;t seem to be working well with the Windows 10 Technical Preview. I poked around the command line switches and found that there is an option to disable checking for updates. Finally below is the command line which worked for me.</p>
+<p align="justify"><strong><font size="1">wlsetup-all.exe&nbsp;&nbsp;&nbsp; /AppSelect:Writer /q /log:C:\temp\Writer.Log /noMU /noHomepage /noSearch</font></strong></p>
+<p>/noMU is the switch to control windows updates.</p>
