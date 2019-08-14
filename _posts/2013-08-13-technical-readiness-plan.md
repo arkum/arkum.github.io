@@ -1,19 +1,9 @@
 ---
 layout: post
-status: publish
-published: true
 title: Technical Readiness plan
-author:
-  display_name: arkumar
-  login: arkumar
-  email: ar.kumar@gmail.com
-  url: ''
-author_login: arkumar
-author_email: ar.kumar@gmail.com
-wordpress_id: 63
-wordpress_url: http://iunknownme.com/blog/?p=63
+subtitle: Technical Readiness plan
 date: '2013-08-13 12:54:32 +1000'
-date_gmt: '2013-08-13 12:54:32 +1000'
+background: 'https://source.unsplash.com/random/300x100'
 categories:
 - Technology
 tags:
@@ -23,11 +13,11 @@ tags:
 - BigData
 comments: []
 ---
-Look at the Google trends graph below showing search trends for different .net framework versions over the last one and half year. On an average 50% of searches are still on .net framework 2.0\. While this is not an indication of how many applications are built on different versions of .NET, I am sure that percentage of applications built on earlier versions of .NET Framework (earlier than version 3.0) could be much higher.  
+Look at the Google trends graph below showing search trends for different .net framework versions over the last one and half year. On an average 50% of searches are still on .net framework 2.0. While this is not an indication of how many applications are built on different versions of .NET, I am sure that percentage of applications built on earlier versions of .NET Framework (earlier than version 3.0) could be much higher.  
+<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1845_RC03/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":".net 1.1","geo":"","time":"2012-01-01 2013-08-31"},{"keyword":".net 2.0","geo":"","time":"2012-01-01 2013-08-31"},{"keyword":".net 3.0","geo":"","time":"2012-01-01 2013-08-31"},{"keyword":".net 3.5","geo":"","time":"2012-01-01 2013-08-31"},{"keyword":".net 4","geo":"","time":"2012-01-01 2013-08-31"}],"category":0,"property":""}, {"exploreQuery":"date=2012-01-01%202013-08-31&q=.net%201.1,.net%202.0,.net%203.0,.net%203.5,.net%204","guestPath":"https://trends.google.com:443/trends/embed/"}); </script> 
+So I was not surprised when one of my friends asked me to help him create a readiness plan to update himself from .NET 2.0 to .NET 4.0/4.5 (Could be 5.0 soon) . According to him he gets lost, as soon after he starts looking around what is new in .NET 4.0/4.5. That shouldn’t surprise anybody, a lot has changed in the technology space since 2003. Look at the famous photo to get an indication of the upsurge in smartphone and in general mobile device penetration.
 
-So I was not surprised when one of my friends asked me to help him create a readiness plan to update himself from .NET 2.0 to .NET 4.0/4.5 (Could be 5.0 soon) . According to him he gets lost, as soon after he starts looking around what is new in .NET 4.0/4.5\. That shouldn’t surprise anybody, a lot has changed in the technology space since 2003\. Look at the famous photo to get an indication of the upsurge in smartphone and in general mobile device penetration.
-
-![](http://distilleryimage5.ak.instagram.com/dd0d48fe8cc111e2962a22000a1f930e_7.jpg)
+![image](http://claydelk.com/wp-content/uploads/2013/03/NBCNews-St-Perters-Square-Instagram.png){: .img-fluid}
 
 > photo courtesy : instagram
 
@@ -43,7 +33,7 @@ Device proliferation has created an obvious need for your web pages to be respon
 
 I would definitely put basic knowledge of HTML5 and CSS3 in my technical knowledge kitty. You can check out the below pluralsight courses to update yourself with HTML5 and CSS
 
- [HTML5 Fundamentals](http://www.pluralsight.com/training/Courses/TableOfContents/html5-fundamentals-2e)
+[HTML5 Fundamentals](http://www.pluralsight.com/training/Courses/TableOfContents/html5-fundamentals-2e)
 
 [CSS3 From Scratch](http://www.pluralsight.com/training/Courses/TableOfContents/css3-from-scratch)
 
@@ -71,7 +61,7 @@ Amazon does not have a sophisticated client side emulator for their services, bu
 
 Again, pluralsight has great resources for [Windows Azure](http://www.pluralsight.com/training/Courses#windows-azure).  Though their introductory course on AWS is really good, I found a lot of good resources a their [YouTube channel](http://www.youtube.com/user/AmazonWebServices), especially the below introductory video.
 
-<iframe height="360" src="http://www.youtube.com/embed/DERzYnthq1s?feature=player_detailpage" frameborder="0" width="640" allowfullscreen=""></iframe>  
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DERzYnthq1s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 #### Node.js
 
@@ -91,7 +81,8 @@ During your RESTful journey, if you even stumble upon [oData](http://www.odata.o
 
 The famous infographic below shows how much data is generated every minute around world wide web
 
-![](http://rack.1.mshcdn.com/media/ZgkyMDEyLzA2LzIyLzA2XzU0XzE0XzYzM19maWxlCnAJdGh1bWIJMTIwMHg5NjAwPg/1c7d4fe7)
+![image](http://rack.1.mshcdn.com/media/ZgkyMDEyLzA2LzIyLzA2XzU0XzE0XzYzM19maWxlCnAJdGh1bWIJMTIwMHg5NjAwPg/1c7d4fe7){: .img-fluid}
+
 
 > Image courtesy Mashable
 

@@ -1,24 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Extract Team Foundation settings from Team Foundation project add-in
-author:
-  display_name: arkumar
-  login: arkumar
-  email: ar.kumar@gmail.com
-  url: ''
-author_login: arkumar
-author_email: ar.kumar@gmail.com
-wordpress_id: 45
-wordpress_url: http://iunknownme.com/blog/?p=45
+subtitle: Extract Team Foundation settings from Team Foundation project add-in
 date: '2013-08-12 06:20:10 +1000'
-date_gmt: '2013-08-12 06:20:10 +1000'
+background: 'https://source.unsplash.com/random/300x100'
 categories:
 - Technology
 tags:
 - VSTO
-comments: []
 ---
 One of my project manager friends approached me with a request recently. He wanted a "working" project add-in, that will help him sync certain attributes of the Project tasks with the corresponding work items in Team Foundation server. According to him, the built-in TFS add-in doesn’t work half the time, and when it works, it completely screws up the project file, making it unusable.
 
@@ -36,7 +25,8 @@ In order to read these settings, you have to combine these settings, decode and 
 
 Combine all the custom “VS” property values into a string builder
 
-<pre class="brush: csharp;">project = app.ActiveProject;
+{% highlight csharp %} 
+project = app.ActiveProject;
 if (project == null) return;
 var properties = (DocumentProperties)app.ActiveProject.CustomDocumentProperties;
 
@@ -58,24 +48,27 @@ for (int i = 0; i < propCount; i++)
 {
     sb.Append((string)properties[VSTSSystemData + i].Value);
 }
-</pre>
+{% endhighlight %} 
 
 Decode the base 64 bit encoded string
 
-<pre class="brush: csharp;">char[] chars = sb.ToString().ToCharArray();
+{% highlight csharp %} 
+char[] chars = sb.ToString().ToCharArray();
 byte[] encodedDataAsBytes = System.Convert.FromBase64String(sb.ToString());
-</pre>
+{% endhighlight %} 
 
-Before you load the decoded string to an XML document, you have to omit the first  bits of the array. These 8 bits store some settings specific to the encoding and compression.
+Before you load the decoded string to an XML document, you have to omit the first 8 bits of the array. These 8 bits store some settings specific to the encoding and compression.
 
-<pre class="brush: csharp;">byte[] result = new byte[encodedDataAsBytes.Length - 8];
+{% highlight csharp %} 
+byte[] result = new byte[encodedDataAsBytes.Length - 8];
 Array.Copy(encodedDataAsBytes,8, result, 0, encodedDataAsBytes.Length - 8);
 MemoryStream s = new MemoryStream(result);
-</pre>
+{% endhighlight %} 
 
 Now you have compressed data in a memory stream. You can deflate this memory stream and load the it into a XDocument to access the various Team Foundation configuration settings.
 
-<pre class="brush: csharp;">using (var df = new System.IO.Compression.DeflateStream(s, System.IO.Compression.CompressionMode.Decompress, true))
+{% highlight csharp %} 
+using (var df = new System.IO.Compression.DeflateStream(s, System.IO.Compression.CompressionMode.Decompress, true))
 {
     var doc = XDocument.Load(df);
     var tfsservernode = (from x in doc.Descendants("V")
@@ -89,6 +82,6 @@ Now you have compressed data in a memory stream. You can deflate this memory str
                          select x).FirstOrDefault();
     projectname = projectnode.Value;
 }
-</pre>
+{% endhighlight %} 
 
-> Please note, the above steps apply to Microsoft Project 2010\. However the format, Team foundation add-in, encodes and compresses these settings are undocumented and proprietary. Please use these at your own risk
+> Please note, the above steps apply to Microsoft Project 2010. However the format, Team foundation add-in, encodes and compresses these settings are undocumented and proprietary. Please use these at your own risk

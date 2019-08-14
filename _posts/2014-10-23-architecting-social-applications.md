@@ -1,25 +1,14 @@
 ---
 layout: post
-status: publish
-published: true
 title: Architecting Social Applications
-author:
-  display_name: arkumar
-  login: arkumar
-  email: ar.kumar@gmail.com
-  url: ''
-author_login: arkumar
-author_email: ar.kumar@gmail.com
-wordpress_id: 99
-wordpress_url: http://iunknownme.com/blog/?p=99
+subtitle: Architecting Social Applications
 date: '2014-10-23 17:36:18 +1000'
-date_gmt: '2014-10-23 17:36:18 +1000'
+background: 'https://source.unsplash.com/random/300x100'
 categories:
 - Technology
 tags:
 - social
 - architecture
-comments: []
 ---
 I still remember this conversation. It was an office pantry conversation with one of my colleagues  who was also my classmate. I was mentioning to him about an Orkut group for our alma mater. Yes, this happened a long time back, when Orkut was still alive. For those who do not know about Orkut, think of it as a previous lame duck version of Google+ – pun intended . Next day I met him again and asked him why is he not in the group yet. He replied, he had tried to join the group -  after joining Orkut, but it was too difficult and gave up. Fast forward a few years and I was connected with the same friend on Facebook. He was so active on Facebook, that I had to unsubscribe notifications from him, because my newsfeed was crowded with status updates on what he did in the morning, afternoon, evening, night and his thoughts on different current affairs, blah, blah, blah. Since I had unsubscribed from his notifications, in my Facebook newsfeed,  I did not know when he decided to relocate until one of our common friends told me about it. Well, I wrote about this incident not to substantiate how popular Facebook is while other social networking platforms – including Google+ are dying. Instead I wanted to highlight the simplicity and seamlessness that Facebook had, which made my friend to “abuse” it (by pouring status messages and making other’s newsfeed unreadable )
 

@@ -1,44 +1,10 @@
 ---
 layout: post
-status: publish
-published: true
 title: Dynamics CRM Integration using Azure Service Bus - Part I - using Service Bus
   Relays
-author:
-  display_name: arkumar
-  login: arkumar
-  email: ar.kumar@gmail.com
-  url: ''
-author_login: arkumar
-author_email: ar.kumar@gmail.com
-wordpress_id: 153
-wordpress_url: http://iunknownme.com/blog/?p=153
+subtitle: This is the first part of a series of posts about various options for integrating Dynamics CRM with external applications/services
 date: '2015-05-27 12:08:00 +1000'
-date_gmt: '2015-05-27 12:08:00 +1000'
-categories:
-- Technology
-- Dynamics
-tags:
-- Dynamics CRM
-- CRM
-- Azure
-comments:
-- id: 12
-  author: 'Tip #522: Escape CRM Online sandbox | Dynamics CRM Tip Of The Day'
-  author_email: ''
-  author_url: http://crmtipoftheday.com/2015/11/19/escape-crm-online-sandbox/
-  date: '2015-11-19 23:32:40 +1000'
-  date_gmt: '2015-11-19 23:32:40 +1000'
-  content: "[&#8230;] bus, etc, but all steps are documented to death in MSDN and
-    there are some good articles and walkthroughs written about [&#8230;]"
-- id: 13
-  author: 'Tip #522: Escape CRM Online sandbox - Microsoft Dynamics CRM Community'
-  author_email: ''
-  author_url: https://community.dynamics.com/crm/b/dynamicscrmtipoftheday/archive/2015/11/19/tip-522-escape-crm-online-sandbox
-  date: '2015-11-20 00:16:00 +1000'
-  date_gmt: '2015-11-20 00:16:00 +1000'
-  content: "[&#8230;] bus, etc, but all steps are documented to death in MSDN and
-    there are some good articles and walkthroughs written about [&#8230;]"
+background: 'https://source.unsplash.com/random/300x100'
 ---
 # Dynamics CRM Integration using Azure Service Bus - Part I - using Service Bus Relays
 
@@ -125,11 +91,7 @@ Once you run the the host application you can see the service endpoint appearing
 
 ##### Configuring CRM to talk to the service through Azure Service Bus
 
-Once we have the service ready (Service Relay to be technically correct
-
-![Smile][2]
-
-), we have to let CRM know how to talk to this service using Azure Service Bus. This is done by registering a service endpoint using the Plugin Registration Tool. However before starting , head over to CRM online, go to Settings->Customizations->Developer Resources and download the Windows Azure Service Bus Issuer Certificate. You will need this certificate while registering the service endpoint.
+Once we have the service ready (Service Relay to be technically correct), we have to let CRM know how to talk to this service using Azure Service Bus. This is done by registering a service endpoint using the Plugin Registration Tool. However before starting , head over to CRM online, go to Settings->Customizations->Developer Resources and download the Windows Azure Service Bus Issuer Certificate. You will need this certificate while registering the service endpoint.
 
 ![crmcertificate][3]
 
