@@ -41,8 +41,8 @@ Hope this helps!!!
 
 This entry was posted in [Technology][3] and tagged [procexp][4], [procmon][5], [sysinternals][6] on [May 26, 2015][7] by [arkumar][8]. 
 
-[1]: http://iunknownme.com/blog/wp-content/uploads/2015/05/registry_thumb.png "registry"
-[2]: http://iunknownme.com/blog/wp-content/uploads/2015/05/procexp_thumb.png "procexp"
+[1]: /uploads/2015/05/registry_thumb.png "registry"
+[2]: /uploads/2015/05/procexp_thumb.png "procexp"
 [3]: http://iunknownme.com/blog/category/technology/
 [4]: http://iunknownme.com/blog/tag/procexp/
 [5]: http://iunknownme.com/blog/tag/procmon/
