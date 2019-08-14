@@ -256,12 +256,12 @@ by side. Even if the external service returns an exception it will appear in the
 
 I will cover Dynamics CRM integration using Azure Service Bus Queues and Topics in the coming posts in this series.
 
-[1]: http://iunknownme.com/blog/wp-content/uploads/2015/05/azurerelay_thumb.png "azurerelay"
-[2]: http://iunknownme.com/blog/wp-content/uploads/2015/05/wlEmoticon-smile.png
-[3]: http://iunknownme.com/blog/wp-content/uploads/2015/05/crmcertificate_thumb.png "crmcertificate"
-[4]: http://iunknownme.com/blog/wp-content/uploads/2015/05/servieendpoint_thumb.png "servieendpoint"
-[5]: http://iunknownme.com/blog/wp-content/uploads/2015/05/acsserviceidentity_thumb.png "acsserviceidentity"
-[6]: http://iunknownme.com/blog/wp-content/uploads/2015/05/registernewstep_thumb.png "registernewstep"
-[7]: http://iunknownme.com/blog/wp-content/uploads/2015/05/aftercontactupdate_thumb.png "aftercontactupdate"
+[1]: /uploads/2015/05/azurerelay_thumb.png "azurerelay"
+[2]: /uploads/2015/05/wlEmoticon-smile.png
+[3]: /uploads/2015/05/crmcertificate_thumb.png "crmcertificate"
+[4]: /uploads/2015/05/servieendpoint_thumb.png "servieendpoint"
+[5]: /uploads/2015/05/acsserviceidentity_thumb.png "acsserviceidentity"
+[6]: /uploads/2015/05/registernewstep_thumb.png "registernewstep"
+[7]: /uploads/2015/05/aftercontactupdate_thumb.png "aftercontactupdate"
 
   
