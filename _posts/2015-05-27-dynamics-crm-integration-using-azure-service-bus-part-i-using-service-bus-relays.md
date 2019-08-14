@@ -174,13 +174,13 @@ In order to host the service I have avoided the lengthy WCF configuration code w
     {
         host.Close();
     }
-```    
+{% endhighlight %} 
 
 As before, if you run your service you can see the service appearing under the Service Relay in your Azure Portal under your Service Bus namespace.
 
 Once the service is up and running, you have to create a Plugin to talk to it using the SDK. This is relatively straightforward. The IServiceProvider container passed to the Execute method of the IPlugin interface, contains an instance of the IServiceEndpointNotificationService, which has one method Execute. Execute method expects you to pass an entity reference to the "serviceendpoint" system entity corresponding to the Service Endpoint you register in the Plugin Registration Tool. Which means you have to have the unique id of the Service Endpoint registration record, which you can grab it from the Plugin Registration tool and pass it as a configuration string to the Plugins constructor as shown in the code snippet below.
     
-```csharp    
+{% highlight csharp %}
     public class ContactUpdatePlugin : IPlugin
     {
         private Guid serviceendpointid;
