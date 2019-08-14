@@ -155,7 +155,7 @@ Please note that Dynamics CRM will not allow you to select Execution Mode as Syn
 From the above example it should be clear that if you are using the out of box CRM support for communicating with Azure Service Bus, you will be following a fire and forget style communication with your service. What if you want to do some processing with the return value from the external service in your Dynamics CRM? At the services side you have to implement `ITwoWayServiceEndpointPlugin` interface. The following code shows a service which returns a simple string to the caller.
 
 In order to host the service I have avoided the lengthy WCF configuration code we did in the previous sample and moved all the configuration to the App.config file
-    
+```csharp    
     
     ServiceHost host = null;
     try
@@ -174,13 +174,13 @@ In order to host the service I have avoided the lengthy WCF configuration code w
     {
         host.Close();
     }
-    
+```    
 
 As before, if you run your service you can see the service appearing under the Service Relay in your Azure Portal under your Service Bus namespace.
 
 Once the service is up and running, you have to create a Plugin to talk to it using the SDK. This is relatively straightforward. The IServiceProvider container passed to the Execute method of the IPlugin interface, contains an instance of the IServiceEndpointNotificationService, which has one method Execute. Execute method expects you to pass an entity reference to the "serviceendpoint" system entity corresponding to the Service Endpoint you register in the Plugin Registration Tool. Which means you have to have the unique id of the Service Endpoint registration record, which you can grab it from the Plugin Registration tool and pass it as a configuration string to the Plugins constructor as shown in the code snippet below.
     
-    
+```csharp    
     public class ContactUpdatePlugin : IPlugin
     {
         private Guid serviceendpointid;
@@ -241,16 +241,9 @@ Once the service is up and running, you have to create a Plugin to talk to it us
             }
         }
     }
-    
+```    
 
-To make things little more interesting I am creating a post entity with the return value from the service and attaching to the original contact entity so that we can verify the results side 
-    
-    
-                                                                                                                                                            
-    
-    
-
-by side. Even if the external service returns an exception it will appear in the post. Registering this Plugin is same as registering any other Plugin except that you have to remember to update the secured and unsecured configuration strings with the unique id of the Service Endpoint registration. Please note that Dynamics CRM will allow you to register this as a Synchronous Plugin which means that until the external service returns or Plugin times out your operation will not complete.
+To make things little more interesting I am creating a post entity with the return value from the service and attaching to the original contact entity so that we can verify the results side by side. Even if the external service returns an exception it will appear in the post. Registering this Plugin is same as registering any other Plugin except that you have to remember to update the secured and unsecured configuration strings with the unique id of the Service Endpoint registration. Please note that Dynamics CRM will allow you to register this as a Synchronous Plugin which means that until the external service returns or Plugin times out your operation will not complete.
 
 ![aftercontactupdate][7]
 
