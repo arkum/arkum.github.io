@@ -51,7 +51,7 @@ Eventually the outsourcing company won the contract, they hired 100 C++ develope
 
 Outsourced call centers are another place, where similar conversations might happen, mostly. I am not so sure whether you have read about the @N incident? you can read a detailed account [here](https://medium.com/@N/how-i-lost-my-50-000-twitter-username-24eb09e026dd). In summary a hacker duped a call center agent and stole the credit card information of the owner of @N twitter handle (from Godaddy or PayPal) and asked him to release his twitter handle (which was worth $50000 at that time) in exchange of the hacker giving back the changed Godaddy password. Call center agent at Godaddy (or PayPal) during the verification process let the hacker guess the last four digits of the credit card number by trying random numbers.
 
-<iframe height="215" src="http://giphy.com/embed/ccosx2jCejdew?html5=true" frameborder="0" width="480" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen=""></iframe>
+<iframe height="215" src="https://giphy.com/embed/ccosx2jCejdew?html5=true" frameborder="0" width="480" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen=""></iframe>
 
 The moment i read the incident, the first thing that came to my mind was hmm, that could have happened through an outsourced call center, most likely in India. Why? the call center agent has zero accountability for the company (Godaddy or its customer). He/she might have been working in night shift and wanted to finish this damn job go back home and sleep. Does he/she really worry what consequences his/her action might have caused? Does he/she have to? Forget it, does he/she know what happened? most likely, no.
 
