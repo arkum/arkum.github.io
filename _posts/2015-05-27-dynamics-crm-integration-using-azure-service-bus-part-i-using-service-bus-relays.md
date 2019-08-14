@@ -73,7 +73,7 @@ It should be obvious from the above code snippet that the entire logic for this 
 
 Once you have the service implementation defined it is time to expose the service to Azure using Service relay. The below code snippet should work for any WCF service. There is nothing CRM specific here other than the use of IServiceEndpointPlugin interface. The below code snippet does self-hosting of the service in a Console application. However you can always use IIS or any other host.
     
-    
+{% highlight csharp %}    
     // Service Bus details
     
     
@@ -111,18 +111,18 @@ Once you have the service implementation defined it is time to expose the servic
     }
     Console.ReadLine();
     
-
+{% endhighlight %}
   
 
   
 
 Once you run the the host application you can see the service endpoint appearing in Azure portal Service Bus –> Relays as shown below. Please note the name "Integrationtest" . This is the name of the endpoint of your service to which Dynamics CRM will talk to. You configure this endpoint while creating the service bus Uri.
     
-    
+{% highlight csharp %}    
     Uri address = ServiceBusEnvironment.CreateServiceUri(Uri.UriSchemeHttps, servicenamespace,
                                                         "IntegrationTest");
     
-    
+{% endhighlight %}    
 
 ![azurerelay][1]
 
@@ -155,7 +155,7 @@ Please note that Dynamics CRM will not allow you to select Execution Mode as Syn
 From the above example it should be clear that if you are using the out of box CRM support for communicating with Azure Service Bus, you will be following a fire and forget style communication with your service. What if you want to do some processing with the return value from the external service in your Dynamics CRM? At the services side you have to implement `ITwoWayServiceEndpointPlugin` interface. The following code shows a service which returns a simple string to the caller.
 
 In order to host the service I have avoided the lengthy WCF configuration code we did in the previous sample and moved all the configuration to the App.config file
-```csharp    
+{% highlight csharp %}   
     
     ServiceHost host = null;
     try
@@ -241,7 +241,7 @@ Once the service is up and running, you have to create a Plugin to talk to it us
             }
         }
     }
-```    
+{% endhighlight %}    
 
 To make things little more interesting I am creating a post entity with the return value from the service and attaching to the original contact entity so that we can verify the results side by side. Even if the external service returns an exception it will appear in the post. Registering this Plugin is same as registering any other Plugin except that you have to remember to update the secured and unsecured configuration strings with the unique id of the Service Endpoint registration. Please note that Dynamics CRM will allow you to register this as a Synchronous Plugin which means that until the external service returns or Plugin times out your operation will not complete.
 
