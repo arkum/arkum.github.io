@@ -23,59 +23,108 @@ tags:
 - BigData
 comments: []
 ---
-<p align="justify">Look at the Google trends graph below showing search trends for different .net framework versions over the last one and half year. On an average 50% of searches are still on .net framework 2.0. While this is not an indication of how many applications are built on different versions of .NET, I am sure that percentage of applications built on earlier versions of .NET Framework (earlier than version 3.0) could be much higher.<br clear="all"></p>
-<p><script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&amp;q=.net+1.1,+.net+2.0,+.net+3.0,+.net+3.5,+.net+4&amp;date=1/2012+20m&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=500&amp;h=330"></script>
-<p align="justify">So I was not surprised when one of my friends asked me to help him create a readiness plan to update himself from .NET 2.0 to .NET 4.0/4.5 (Could be 5.0 soon) . According to him he gets lost, as soon after he starts looking around what is new in .NET 4.0/4.5. That shouldn&rsquo;t surprise anybody, a lot has changed in the technology space since 2003. Look at the famous photo to get an indication of the upsurge in smartphone and in general mobile device penetration.</p>
-<p><img src="http://distilleryimage5.ak.instagram.com/dd0d48fe8cc111e2962a22000a1f930e_7.jpg"></p>
-<blockquote><p>photo courtesy : instagram</p>
-</blockquote>
-<p align="justify">Technology landscape changed a lot, from the avalanche of tables starting with <strong>iPad</strong>, smartphone revolution started with <strong>iPhone, </strong>different providers fighting for cloud supremacy, to the death of <strong>SOAP. </strong></p>
-<p align="justify">When I started creating a .NET readiness roadmap (an official term) a.k.a development plan for my friend, I realized how much the technology landscape has become open. Open standards and open source technologies have become so important that no development plan is complete without them. </p>
-<p align="justify">On second thought it is not really about open source or .NET or any other proprietary technology.&nbsp; Instead it is about how these advancements influence technologies used to build different layers of an application. So here is my attempt to derive a developer&rsquo;s roadmap by looking at technology advancements or changes happened at each application layer (User Interface, Services and Persistence) and some of the cross cutting concerns as well. </p>
-<h3>User Interface</h3>
-<p align="justify">Device proliferation has created an obvious need for your web pages to be responsive, so that they adapt not only to different browsers, but also to different screen sizes and resolutions. Most of the browser vendors and smartphone makers support HTM5 and CSS3 including IE, Chrome, Firefox, Safari.</p>
-<p align="justify">I would definitely put basic knowledge of HTML5 and CSS3 in my technical knowledge kitty. You can check out the below pluralsight courses to update yourself with HTML5 and CSS</p>
-<p align="justify">&nbsp;<a href="http://www.pluralsight.com/training/Courses/TableOfContents/html5-fundamentals-2e" target="_blank">HTML5 Fundamentals</a></p>
-<p align="justify"><a href="http://www.pluralsight.com/training/Courses/TableOfContents/css3-from-scratch" target="_blank">CSS3 From Scratch</a></p>
-<p align="justify">As I write this post, I am sure a new JavaScript library would have been released, maybe another one by the time when you read this post. A myriad of JavaScript libraries starting with jQuery is what made HTML5 based applications popular. I can&rsquo;t imagine developing a web page without jQuery and Modernizer. If you haven&rsquo;t dirtied your hands with jQuery until now, you should do it as soon as possible. Again pluralsight has a ton of jQuery courses, but <a href="http://www.pluralsight.com/training/Courses/TableOfContents/jquery-fundamentals" target="_blank">this one</a> for sure will get you started. </p>
-<p align="justify">If you are a ASP.NET developer and haven&rsquo;t checked out <a href="http://www.asp.net/mvc/tutorials/mvc-music-store" target="_blank">ASP.NET MVC</a> yet, be sure to do that. Along the way you will also encounter many of the JavaScript libraries as well, at the least jQuery for sure.</p>
-<p align="justify">I am not a CSS expert, hence I rely on <a href="http://pluralsight.com/training/courses/TableOfContents?courseName=bootstrap-introduction&amp;highlight=scott-allen_bootstrap-m1-introduction!scott-allen_bootstrap-m5-javascript!scott-allen_bootstrap-m4-components!scott-allen_bootstrap-m3-everyday!scott-allen_bootstrap-m2-layout#bootstrap-m1-introduction" target="_blank">Twitter Bootstrap CSS library</a> to create responsive pages. </p>
-<h4 align="justify">Mobile development</h4>
-<p align="justify">It is no surprise that most companies have a mobile first strategy. With Mobile device proliferation showing no signs of receding in the near future, I would definitely add mobile app development skills to my armory. My personal favorite is <a href="http://www.pluralsight.com/training/Courses/TableOfContents/beyond-basics-windows-phone8" target="_blank">windows phone</a> and <a href="http://www.pluralsight.com/training/Courses/TableOfContents/windows8-design-to-delivery" target="_blank">windows 8 development</a>, however be sure to check-out other development platforms as well. If you are a .NET developer and interested in cross platform development of mobile applications, be sure to check out <a href="http://xamarin.com/" target="_blank">Xamarin</a> and <a href="http://phonegap.com/" target="_blank">PhoneGap</a></p>
-<h4 align="justify">Beyond touch</h4>
-<p align="justify">If you are interested in advanced natural UI technologies, you may want to consider learning <a href="http://www.microsoft.com/en-us/kinectforwindows/develop/developer-downloads.aspx" target="_blank">Microsoft Kinect SDK</a> and <a href="https://www.leapmotion.com/" target="_blank">Leap Motion</a>. Leap Motion even has a c# SDK.</p>
-<h2 align="justify">At the Server&rsquo;s side</h2>
-<p align="justify">Without any doubt, the most revolutionary thing happened at server side computing, in the recent years is the advent of cloud computing. With Azure and Amazon fighting to serve their customer&rsquo;s with reduced price and new services and offerings, time to start developing for the cloud is now. </p>
-<p align="justify">Windows Azure offers three months free trial, thought most of the services you can run locally for development and testing purpose, as a part of SDK.</p>
-<p align="justify">Amazon does not have a sophisticated client side emulator for their services, but they do offer one year <a href="http://aws.amazon.com/free/" target="_blank">free trial</a> with some restrictions to the available services</p>
-<p align="justify">Again, pluralsight has great resources for <a href="http://www.pluralsight.com/training/Courses#windows-azure" target="_blank">Windows Azure</a>.&nbsp; Though their introductory course on AWS is really good, I found a lot of good resources a their <a href="http://www.youtube.com/user/AmazonWebServices" target="_blank">YouTube channel</a>, especially the below introductory video.</p>
-<p><iframe height="360" src="http://www.youtube.com/embed/DERzYnthq1s?feature=player_detailpage" frameborder="0" width="640" allowfullscreen></iframe><br />
-<h4>Node.js</h4>
-<p align="justify">One way to look at node.js is as a framework for developing cross platform web applications. If you have been primarily working with .NET and know a little bit of&nbsp; JavaScript, Node.Js could be your tool to create web applications that will run in both Windows and Linux.&nbsp; This single threaded, tiny JavaScript&nbsp; framework is making&nbsp; waves. So be sure to check out and understand Node.js. Some good tutorials are <a href="http://nodetuts.com/index.html" target="_blank">here</a>&nbsp;</p>
-<h4 align="justify">Take some REST</h4>
-<p align="justify">I found it hard to believe that Roy Fielding had defined REST as early as year 2000, and the creators of SOAP either did not find it or ignored it. If Azure and Amazon can expose their cloud services as RESTful services, you really do not have to think twice for adopting RESTful design for your services. If you are a .NET developer be sure to check out ASP.NET Web API. Some great tutorials are available <a href="http://www.asp.net/web-api/overview" target="_blank">here</a>.</p>
-<p align="justify">For RESTful API design guidelines check out the <a href="https://blog.apigee.com/detail/api_design_are_you_a_rest-afarian_or_a_rest_pragmatist/" target="_blank">apigee</a> site. They have some excellent blogs and even YouTube videos.</p>
-<p align="justify">For a more serious understanding of the architectural principles behind REST, check out the pluralsight <a href="http://pluralsight.com/training/Courses/TableOfContents/rest-fundamentals" target="_blank">course</a>.</p>
-<p align="justify">During your RESTful journey, if you even stumble upon <a href="http://www.odata.org/" target="_blank">oData</a>, I would suggest you check out why oData is not really REST, before getting excited too much.</p>
-<h2>Persisting Data</h2>
-<p>The famous infographic below shows how much data is generated every minute around world wide web</p>
-<p><img src="http://rack.1.mshcdn.com/media/ZgkyMDEyLzA2LzIyLzA2XzU0XzE0XzYzM19maWxlCnAJdGh1bWIJMTIwMHg5NjAwPg/1c7d4fe7"></p>
-<blockquote><p>Image courtesy Mashable</p>
-</blockquote>
-<p align="justify">Imagine storing one percentage of this data in a relational database without compromising reliability and scalability. NoSQL (not only SQL) databases originated from this very use case. NoSQL databases sacrifices consistency (eventual consistency against transactional consistency)&nbsp; in favor of availability, allowing you to scale out indefinitely for storing non-relational data (CAP theorem). Most of the people consider polyglot persistence while designing applications, with a mix of relational and non-relational databases. If you are a .NET developer, consider learning <a href="http://ravendb.net/" target="_blank">RavenDB</a>, which uses LINQ as its querying language. MongoDB and Neo4j are also worth checking out, with the later being a Graph Database, allowing you to store Graph data. One of the interesting things I found about NoSQL databases is that, all of them expose a RESTful API interface.</p>
-<p align="justify">Great, we have a solution for storing these &ldquo;BigData&rdquo;. How do we make some sense out of this? MapReduce is the technology for analyzing this BigData stored in huge clusters of NoSQL databases. If you have started playing with NoSQL databases, RavenDB or MongoDB, you might have already seen that these databases allow you to write Map and Reduce queries.&nbsp; These days, I haven&rsquo;t seen a sentence written, without mentioning Hadoop, and most of the people start their NoSQL journey with Hadoop. Though primarily written in Java, Hapdoop has support from Azure and Amazon in the cloud. Here is a great <a href="http://www.youtube.com/watch?v=qI_g07C_Q5I" target="_blank">introduction</a> to NoSQL by none other than Martin Fowler.</p>
-<h4 align="justify">ORMs</h4>
-<p align="justify">I haven&rsquo;t written a SQL query since 2005. Though I was staying away from SQL and Relational Databases deliberately, so that they don&rsquo;t influence my NoSQL journey, another reason was ORM&rsquo;s.&nbsp; Microsoft&rsquo;s Entity Framework has come a long way since its inception, though it lacks certain features compared to its counterpart, NHibernate, for e.g. level 2 caching. EF&rsquo;s fluent API is powerful and easy.&nbsp; Check out this channel9 <a href="http://channel9.msdn.com/Shows/Visual-Studio-Toolbox/Entity-Framework-Tips-and-Tricks" target="_blank">video</a> by Entity Framework Guru Julie Lerman</p>
-<h2 align="justify">Security</h2>
-<p align="justify">oAuth is one the latest authorization protocols started by Twitter and popularized by Facebook and other internet majors by. Consuming a service which is implementing oAuth is fairly easy, while implementing oAuth for your service is not a pleasant experience. If you are a <strong>C#</strong> developer check out the <a href="http://dotnetopenauth.net/" target="_blank">DotNetOpenAuth</a> library.</p>
-<p align="justify">Claims based authentication was prevalent, well before the &ldquo;cloud burst&rdquo;. However I would argue that the popularity of cloud is what made the claims based authentication imperative for a lot applications. Windows Identity Foundation (WIF) , which makes implementing claims based authentication for your applications and services is now a part of the .NET framework itself. Both Azure and Amazon has hosted Access Control Services on the cloud. If you are a .NET developer, you may want to start learning about claims based authentication <a href="http://msdn.microsoft.com/en-us/security/aa570351.aspx" target="_blank">here</a>. </p>
-<h2 align="justify">Programming paradigms</h2>
-<h4 align="justify">Functional Programming</h4>
-<p align="justify">I was listening to one of the <a href="http://dotnetrocks.com/" target="_blank">dotnetrocks</a> podcasts with Robert C. Martin (@<font style="font-weight: normal">unclebobmartin</font>) about the future of Object-Oriented Programming (if you haven&rsquo;t checked out dotnetrocks yet, please do so, these guys are amazing, and you will find it difficult to listen to any other podcast, once you listen to dotnetrocks).&nbsp; Two of the many pearls of wisdom from @<font style="font-weight: normal">unclebobmartin </font>got me thinking. First one was, why would OOP have a future, it is done, go invent something else. Another one was about how variable assignments bring the third dimension of time to your program (a.k.a statefullness), and how this is making difficult to write multi-threaded applications. The answer to both these problems is <strong>Functional Programming</strong>. Though it was not knew, functional programming was always stuck with academia, and never came into commercial software development. @<font style="font-weight: normal">unclebobmartin describes </font>Functional Programming as programming without assignments, that is your variables do not change state when your program is run &ndash; a.k.a immutability. Another way to look at functional programming is to think of sending functions to data other than sending data to functions (the way we were taught). If you closely look it, this is what MapReduce is all about. If you have been dealing with BigData and MapReduce, but never came across functional programming, you should definitely check out the concepts</p>
-<p align="justify">Channel9 has a <a href="http://channel9.msdn.com/Series/C9-Lectures-Erik-Meijer-Functional-Programming-Fundamentals" target="_blank">Functional Programming Fundamentals</a> series by Dr. Erik Meijer. Do check it out, though the examples are in haskell langauge </p>
-<p align="justify">F# is the answer if you want to try Functional Programming in Visual Studio. The best way to learn F# is through the <a href="http://tryfsharp.org/" target="_blank">tryfsharp.org</a> website, though I prefer typing the examples in Visual Studio, than the online editor.</p>
-<h4 align="justify">Async, Async and await</h4>
-<p align="justify">In my opinion, Task Parallel Library (TPL) and its natural progression async, await pattern, are the two major feature additions to <strong>C# </strong>and <strong>.NET </strong>in the recent times. If you have already programmer using ThreadPool and Asynchronous I/O, you should be able to understand TPL and async/await quite easily. I will try to find a good tutorial and post it here.</p>
-<h2 align="justify">Notable Omissions</h2>
-<p align="justify">WCF &ndash; If you have been programming in .NET, you might have noticed that I did not mention WCF at all. Should you learn WCF? Maybe, if you are planning to write SOAP services. How about RESTful services? I wouldn&rsquo;t implement a RESTFul service in WCF. My choice would be either ASP.NET Web API or Node.js. I have also not mentioned MVVM and WPF. You are sure to encounter MVVM, if you are developing apps for Windows 8 platform. </p>
-<p align="justify">Happy learning!!!</p>
+Look at the Google trends graph below showing search trends for different .net framework versions over the last one and half year. On an average 50% of searches are still on .net framework 2.0\. While this is not an indication of how many applications are built on different versions of .NET, I am sure that percentage of applications built on earlier versions of .NET Framework (earlier than version 3.0) could be much higher.  
+
+So I was not surprised when one of my friends asked me to help him create a readiness plan to update himself from .NET 2.0 to .NET 4.0/4.5 (Could be 5.0 soon) . According to him he gets lost, as soon after he starts looking around what is new in .NET 4.0/4.5\. That shouldn’t surprise anybody, a lot has changed in the technology space since 2003\. Look at the famous photo to get an indication of the upsurge in smartphone and in general mobile device penetration.
+
+![](http://distilleryimage5.ak.instagram.com/dd0d48fe8cc111e2962a22000a1f930e_7.jpg)
+
+> photo courtesy : instagram
+
+Technology landscape changed a lot, from the avalanche of tables starting with **iPad**, smartphone revolution started with **iPhone,** different providers fighting for cloud supremacy, to the death of **SOAP.**
+
+When I started creating a .NET readiness roadmap (an official term) a.k.a development plan for my friend, I realized how much the technology landscape has become open. Open standards and open source technologies have become so important that no development plan is complete without them.
+
+On second thought it is not really about open source or .NET or any other proprietary technology.  Instead it is about how these advancements influence technologies used to build different layers of an application. So here is my attempt to derive a developer’s roadmap by looking at technology advancements or changes happened at each application layer (User Interface, Services and Persistence) and some of the cross cutting concerns as well.
+
+### User Interface
+
+Device proliferation has created an obvious need for your web pages to be responsive, so that they adapt not only to different browsers, but also to different screen sizes and resolutions. Most of the browser vendors and smartphone makers support HTM5 and CSS3 including IE, Chrome, Firefox, Safari.
+
+I would definitely put basic knowledge of HTML5 and CSS3 in my technical knowledge kitty. You can check out the below pluralsight courses to update yourself with HTML5 and CSS
+
+ [HTML5 Fundamentals](http://www.pluralsight.com/training/Courses/TableOfContents/html5-fundamentals-2e)
+
+[CSS3 From Scratch](http://www.pluralsight.com/training/Courses/TableOfContents/css3-from-scratch)
+
+As I write this post, I am sure a new JavaScript library would have been released, maybe another one by the time when you read this post. A myriad of JavaScript libraries starting with jQuery is what made HTML5 based applications popular. I can’t imagine developing a web page without jQuery and Modernizer. If you haven’t dirtied your hands with jQuery until now, you should do it as soon as possible. Again pluralsight has a ton of jQuery courses, but [this one](http://www.pluralsight.com/training/Courses/TableOfContents/jquery-fundamentals) for sure will get you started.
+
+If you are a ASP.NET developer and haven’t checked out [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-music-store) yet, be sure to do that. Along the way you will also encounter many of the JavaScript libraries as well, at the least jQuery for sure.
+
+I am not a CSS expert, hence I rely on [Twitter Bootstrap CSS library](http://pluralsight.com/training/courses/TableOfContents?courseName=bootstrap-introduction&highlight=scott-allen_bootstrap-m1-introduction!scott-allen_bootstrap-m5-javascript!scott-allen_bootstrap-m4-components!scott-allen_bootstrap-m3-everyday!scott-allen_bootstrap-m2-layout#bootstrap-m1-introduction) to create responsive pages.
+
+#### Mobile development
+
+It is no surprise that most companies have a mobile first strategy. With Mobile device proliferation showing no signs of receding in the near future, I would definitely add mobile app development skills to my armory. My personal favorite is [windows phone](http://www.pluralsight.com/training/Courses/TableOfContents/beyond-basics-windows-phone8) and [windows 8 development](http://www.pluralsight.com/training/Courses/TableOfContents/windows8-design-to-delivery), however be sure to check-out other development platforms as well. If you are a .NET developer and interested in cross platform development of mobile applications, be sure to check out [Xamarin](http://xamarin.com/) and [PhoneGap](http://phonegap.com/)
+
+#### Beyond touch
+
+If you are interested in advanced natural UI technologies, you may want to consider learning [Microsoft Kinect SDK](http://www.microsoft.com/en-us/kinectforwindows/develop/developer-downloads.aspx) and [Leap Motion](https://www.leapmotion.com/). Leap Motion even has a c# SDK.
+
+## At the Server’s side
+
+Without any doubt, the most revolutionary thing happened at server side computing, in the recent years is the advent of cloud computing. With Azure and Amazon fighting to serve their customer’s with reduced price and new services and offerings, time to start developing for the cloud is now.
+
+Windows Azure offers three months free trial, thought most of the services you can run locally for development and testing purpose, as a part of SDK.
+
+Amazon does not have a sophisticated client side emulator for their services, but they do offer one year [free trial](http://aws.amazon.com/free/) with some restrictions to the available services
+
+Again, pluralsight has great resources for [Windows Azure](http://www.pluralsight.com/training/Courses#windows-azure).  Though their introductory course on AWS is really good, I found a lot of good resources a their [YouTube channel](http://www.youtube.com/user/AmazonWebServices), especially the below introductory video.
+
+<iframe height="360" src="http://www.youtube.com/embed/DERzYnthq1s?feature=player_detailpage" frameborder="0" width="640" allowfullscreen=""></iframe>  
+
+#### Node.js
+
+One way to look at node.js is as a framework for developing cross platform web applications. If you have been primarily working with .NET and know a little bit of  JavaScript, Node.Js could be your tool to create web applications that will run in both Windows and Linux.  This single threaded, tiny JavaScript  framework is making  waves. So be sure to check out and understand Node.js. Some good tutorials are [here](http://nodetuts.com/index.html) 
+
+#### Take some REST
+
+I found it hard to believe that Roy Fielding had defined REST as early as year 2000, and the creators of SOAP either did not find it or ignored it. If Azure and Amazon can expose their cloud services as RESTful services, you really do not have to think twice for adopting RESTful design for your services. If you are a .NET developer be sure to check out ASP.NET Web API. Some great tutorials are available [here](http://www.asp.net/web-api/overview).
+
+For RESTful API design guidelines check out the [apigee](https://blog.apigee.com/detail/api_design_are_you_a_rest-afarian_or_a_rest_pragmatist/) site. They have some excellent blogs and even YouTube videos.
+
+For a more serious understanding of the architectural principles behind REST, check out the pluralsight [course](http://pluralsight.com/training/Courses/TableOfContents/rest-fundamentals).
+
+During your RESTful journey, if you even stumble upon [oData](http://www.odata.org/), I would suggest you check out why oData is not really REST, before getting excited too much.
+
+## Persisting Data
+
+The famous infographic below shows how much data is generated every minute around world wide web
+
+![](http://rack.1.mshcdn.com/media/ZgkyMDEyLzA2LzIyLzA2XzU0XzE0XzYzM19maWxlCnAJdGh1bWIJMTIwMHg5NjAwPg/1c7d4fe7)
+
+> Image courtesy Mashable
+
+Imagine storing one percentage of this data in a relational database without compromising reliability and scalability. NoSQL (not only SQL) databases originated from this very use case. NoSQL databases sacrifices consistency (eventual consistency against transactional consistency)  in favor of availability, allowing you to scale out indefinitely for storing non-relational data (CAP theorem). Most of the people consider polyglot persistence while designing applications, with a mix of relational and non-relational databases. If you are a .NET developer, consider learning [RavenDB](http://ravendb.net/), which uses LINQ as its querying language. MongoDB and Neo4j are also worth checking out, with the later being a Graph Database, allowing you to store Graph data. One of the interesting things I found about NoSQL databases is that, all of them expose a RESTful API interface.
+
+Great, we have a solution for storing these “BigData”. How do we make some sense out of this? MapReduce is the technology for analyzing this BigData stored in huge clusters of NoSQL databases. If you have started playing with NoSQL databases, RavenDB or MongoDB, you might have already seen that these databases allow you to write Map and Reduce queries.  These days, I haven’t seen a sentence written, without mentioning Hadoop, and most of the people start their NoSQL journey with Hadoop. Though primarily written in Java, Hapdoop has support from Azure and Amazon in the cloud. Here is a great [introduction](http://www.youtube.com/watch?v=qI_g07C_Q5I) to NoSQL by none other than Martin Fowler.
+
+#### ORMs
+
+I haven’t written a SQL query since 2005\. Though I was staying away from SQL and Relational Databases deliberately, so that they don’t influence my NoSQL journey, another reason was ORM’s.  Microsoft’s Entity Framework has come a long way since its inception, though it lacks certain features compared to its counterpart, NHibernate, for e.g. level 2 caching. EF’s fluent API is powerful and easy.  Check out this channel9 [video](http://channel9.msdn.com/Shows/Visual-Studio-Toolbox/Entity-Framework-Tips-and-Tricks) by Entity Framework Guru Julie Lerman
+
+## Security
+
+oAuth is one the latest authorization protocols started by Twitter and popularized by Facebook and other internet majors by. Consuming a service which is implementing oAuth is fairly easy, while implementing oAuth for your service is not a pleasant experience. If you are a **C#** developer check out the [DotNetOpenAuth](http://dotnetopenauth.net/) library.
+
+Claims based authentication was prevalent, well before the “cloud burst”. However I would argue that the popularity of cloud is what made the claims based authentication imperative for a lot applications. Windows Identity Foundation (WIF) , which makes implementing claims based authentication for your applications and services is now a part of the .NET framework itself. Both Azure and Amazon has hosted Access Control Services on the cloud. If you are a .NET developer, you may want to start learning about claims based authentication [here](http://msdn.microsoft.com/en-us/security/aa570351.aspx).
+
+## Programming paradigms
+
+#### Functional Programming
+
+I was listening to one of the [dotnetrocks](http://dotnetrocks.com/) podcasts with Robert C. Martin (@<font style="font-weight: normal">unclebobmartin</font>) about the future of Object-Oriented Programming (if you haven’t checked out dotnetrocks yet, please do so, these guys are amazing, and you will find it difficult to listen to any other podcast, once you listen to dotnetrocks).  Two of the many pearls of wisdom from @<font style="font-weight: normal">unclebobmartin</font> got me thinking. First one was, why would OOP have a future, it is done, go invent something else. Another one was about how variable assignments bring the third dimension of time to your program (a.k.a statefullness), and how this is making difficult to write multi-threaded applications. The answer to both these problems is **Functional Programming**. Though it was not knew, functional programming was always stuck with academia, and never came into commercial software development. @<font style="font-weight: normal">unclebobmartin describes</font> Functional Programming as programming without assignments, that is your variables do not change state when your program is run – a.k.a immutability. Another way to look at functional programming is to think of sending functions to data other than sending data to functions (the way we were taught). If you closely look it, this is what MapReduce is all about. If you have been dealing with BigData and MapReduce, but never came across functional programming, you should definitely check out the concepts
+
+Channel9 has a [Functional Programming Fundamentals](http://channel9.msdn.com/Series/C9-Lectures-Erik-Meijer-Functional-Programming-Fundamentals) series by Dr. Erik Meijer. Do check it out, though the examples are in haskell langauge
+
+F# is the answer if you want to try Functional Programming in Visual Studio. The best way to learn F# is through the [tryfsharp.org](http://tryfsharp.org/) website, though I prefer typing the examples in Visual Studio, than the online editor.
+
+#### Async, Async and await
+
+In my opinion, Task Parallel Library (TPL) and its natural progression async, await pattern, are the two major feature additions to **C#** and **.NET** in the recent times. If you have already programmer using ThreadPool and Asynchronous I/O, you should be able to understand TPL and async/await quite easily. I will try to find a good tutorial and post it here.
+
+## Notable Omissions
+
+WCF – If you have been programming in .NET, you might have noticed that I did not mention WCF at all. Should you learn WCF? Maybe, if you are planning to write SOAP services. How about RESTful services? I wouldn’t implement a RESTFul service in WCF. My choice would be either ASP.NET Web API or Node.js. I have also not mentioned MVVM and WPF. You are sure to encounter MVVM, if you are developing apps for Windows 8 platform.
+
+Happy learning!!!
