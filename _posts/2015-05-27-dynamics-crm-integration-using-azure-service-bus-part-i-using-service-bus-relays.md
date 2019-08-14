@@ -40,9 +40,6 @@ comments:
   content: "[&#8230;] bus, etc, but all steps are documented to death in MSDN and
     there are some good articles and walkthroughs written about [&#8230;]"
 ---
-
-[Source](http://iunknownme.com/blog/2015/05/27/dynamics-crm-integration-using-azure-service-bus-part-i-using-service-bus-relays/ "Permalink to Dynamics CRM Integration using Azure Service Bus - Part I - using Service Bus Relays")
-
 # Dynamics CRM Integration using Azure Service Bus - Part I - using Service Bus Relays
 
 > This is the first part of a series of posts about various options for integrating Dynamics CRM with external applications/services. I will update this space with links to the other posts in the series once I publish them.
