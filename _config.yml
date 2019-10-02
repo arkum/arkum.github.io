@@ -23,7 +23,7 @@ url: "https://iuknownme.com" # the base hostname & protocol for your site, e.g. 
 twitter_username: ar_kumar
 github_username:  arkum
 
-google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+google_analytics:   UA-43274713-1 # out your google-analytics code
 
 # Build settings
 markdown: kramdown
