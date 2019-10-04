@@ -3,7 +3,7 @@ layout: post
 title: Technical Readiness plan
 subtitle: Technical Readiness plan
 date: '2013-08-13 12:54:32 +1000'
-background: 'https://source.unsplash.com/random/300x100'
+background: 'https://source.unsplash.com/random'
 categories:
 - Technology
 tags:

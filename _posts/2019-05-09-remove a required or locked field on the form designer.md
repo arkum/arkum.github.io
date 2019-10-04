@@ -3,7 +3,7 @@ layout: post
 title: CRM Tip remove a required or locked field on the form designer
 subtitle: CRM Tip remove a required or locked field on the form designer
 date: '2019-05-09 12:08:00 +1000'
-background: 'https://source.unsplash.com/random/300x100'
+background: 'https://source.unsplash.com/random'
 ---
 
 # CRM Tip: remove a required or locked field on the form designer
