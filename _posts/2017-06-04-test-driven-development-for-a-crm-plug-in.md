@@ -89,7 +89,7 @@ You might have already noticed that majority of our unit test methods do not hav
 
 Anyhow, I hope you got some ideas about Test Driven Development especially in the context of writing a CRM plug-in. Hope you write many more unit tests for your plug-ins.
 
-[1]: https://miro.medium.com/fit/c/96/96/1*dmbNkD5D-u45r44go_cf0g.png
+
 [2]: https://github.com/arkum/CRMTDD
 [3]: /uploads/2017/04/crmtdd1.png
 [4]: [image](/uploads/2017/04/crmtdd2.png){: .img-fluid}
