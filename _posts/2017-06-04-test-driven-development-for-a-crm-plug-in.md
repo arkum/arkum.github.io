@@ -4,6 +4,11 @@ title: "Test Driven Development for a CRM Plug-in"
 subtitle: "Test Driven Development for a CRM Plug-in"
 date: '2017-06-04 12:08:00 +1000'
 background: 'https://source.unsplash.com/random'
+categories:
+- Technology
+tags:
+- TDD
+- CRM
 ---
 
 # Test Driven Development for a CRM Plug-in
