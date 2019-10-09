@@ -22,6 +22,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://iunknownme.com/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ar_kumar
 github_username:  arkum
+linkedin_username: ar-kumar
 
 google_analytics:   UA-43274713-1 # out your google-analytics code
 
@@ -35,3 +36,4 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
+  - jemoji
