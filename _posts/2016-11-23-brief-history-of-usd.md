@@ -14,12 +14,12 @@ tags:
 
 USD, CCD, CCA, UII, CCF, AIF…. ever seen so many TLA's in one sentence? Brace yourself, you are in for a ride. Jokes aside, I am going to give you a glimpse of the evolution of USD. Apart from enjoying some technology history, I believe you might be able to make some sense about some of the product features and design decisions you might have had to take during USD implementation
  
-Below graph will give you a glimpse of the evolution of Unified Service Desktop from Customer Care Framework. (sort of a TLDR version, (I warn you about TLA's :))
+Below graph will give you a glimpse of the evolution of Unified Service Desktop from Customer Care Framework. (sort of a TLDR version, (I warned you about TLA's :smile:)
 
 ![image](/uploads/2016/11/usdhistory1.png){: .img-fluid}
  
 ## How it started
-It all started somewhere in 2002 from an implementation done by Microsoft Consulting Services for a customer, integrating some of their LOB applications and creating an integrated desktop application housing various LOB applications. After the implementation Microsoft felt that such an application would benefit many, especially call centres and released Contact Centre Framework in year 2003. It was named Contact Centre Framework as it as aimed at contact centres
+It all started somewhere in 2002 from an implementation done by Microsoft Consulting Services for a customer, integrating some of their LOB applications and creating an integrated desktop application housing various LOB applications. After the implementation Microsoft felt that such an application would benefit many, especially call centres and released Contact Centre Framework in year 2003. It was named Contact Centre Framework as it was aimed at contact centres
  
 Later Microsoft renamed it to Customer Care Framework realising the potential for the applicability of the product in environments other than contact centres.
  
@@ -58,7 +58,7 @@ CCF as a separate product ceased to exist after the release of CCF 2001 SP1 QFE.
 Popups has always been a problem with CCF. Especially web popups. A lot of CCF and CCA implementations had to implement custom coding to handle popups. And if you remember until version 2011, CRM was full of popups. With the release of CCA, more and more people started integrating CRM and stumbled on this problem of popups. A little while after the release of CCA, Microsoft Consulting Services created a solution for handling popups in CRM and other web applications and provide fist class out of box integration for various CRM entities. As far as CCF or CCA is concerned CRM was treated as any other web application when hosted inside. CCD changed this and made CRM as first class citizens. Incidentally a pivotal feature of USD. CCD was never released to public and was only available for Microsoft Consulting Services projects.
  
 ### USD
-After second release of CCA, CRM team decided to bundle features into the next release of the CRM. They decided to use CCD and package it as USD (Unified Service Desk) as you know in its current form. However, with this release Microsoft had addressed issues with WPFCAB. WPFCAB has been currently rolled under SCSF (Smart Client Software Factory) codeplex project which was released by Microsoft after it released CAB. Yes, you got it right, USD still uses CAB which was created for windows forms and later modified to support WPF. Because of this, a lot of old CCF features work the same way in USD. So, we have come a full circle from CCF to USD and CAB stuck along :)
+After second release of CCA, CRM team decided to bundle features into the next release of the CRM. They decided to use CCD and package it as USD (Unified Service Desk) as you know in its current form. However, with this release Microsoft had addressed issues with WPFCAB. WPFCAB has been currently rolled under SCSF (Smart Client Software Factory) codeplex project which was released by Microsoft after it released CAB. Yes, you got it right, USD still uses CAB which was created for windows forms and later modified to support WPF. Because of this, a lot of old CCF features work the same way in USD. So, we have come a full circle from CCF to USD and CAB stuck along :smile:
 
 [1]: http://wpfcab.codeplex.com/
 [2]: https://msdn.microsoft.com/en-us/library/ee712804.aspx
