@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kubernetes 101 using ASP.NET Core. Run an ASP.NET core application inside a Kubernetes Pod"
-subtitle: "get started with Kubernetes by running an ASP.NET core application inside a Kubernetes Pod"
+subtitle: "Get started with Kubernetes by running an ASP.NET core application inside a Kubernetes Pod"
 date: '2019-11-25 12:08:00 +1000'
 background: 'https://source.unsplash.com/random'
 ---
