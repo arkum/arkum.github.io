@@ -5,7 +5,6 @@ subtitle: "Get started with Kubernetes by running an ASP.NET core application in
 date: '2019-11-25 12:08:00 +1000'
 background: 'https://source.unsplash.com/random'
 ---
-# Kubernetes 101 using ASP.NET Core. Run an ASP.NET core application inside a Kubernetes Pod
 Kubernetes is a complex topic and it can overwhelm and confuse you the first time. Hence the very explicit title. In this post, I will show you how to run an ASP.NET core application inside a Kubernetes pod. We are not discussing Kubernetes concepts like deployments, namespaces, contexts, load balancer etc. We will start with the simplest of all Pod. A pod in Kubernetes is the smallest execution unit. It runs your container inside a Kubernetes cluster. You can think of it as a wrapper around your container.
 ## You already have docker and Kubernetes installed.
 I assume you already have docker and Kubernetes installed. The latest version of the docker desktop comes with Kubernetes.
