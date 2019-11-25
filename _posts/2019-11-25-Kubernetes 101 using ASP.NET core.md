@@ -47,7 +47,7 @@ webapiapp                              dev                 1a1733472871        4
 ```kubectl``` pronounced as "cubecuttle" is the command to interact with Kubernetes. We will use ```kubectl``` to create a pod and run the container image we created above inside the kubernetes cluster.
 ## Define the pod
 
-The following YAML defines the pod that we want the ```kubectl``` command to run and create. The image property specifies which container image you would like to run inside this pod. As we discussed earlier, consider the pod as a wrapper around your container.
+The following YAML defines the pod that we want the ```kubectl``` command to create and run inside the Kubernetes cluster. The image property specifies which container image you would like to run inside this pod. As we discussed earlier, consider the pod as a wrapper around your container.
 
 When Kubernetes runs your container inside a pod we are asking Kubernetes to run the web application using the dotnet command through the command property in the YAML file. Substitute the "webapiapp.dll" with the name of your web application dll. 
 
@@ -80,7 +80,7 @@ kubectl get pod first-pod
 NAME        READY   STATUS    RESTARTS   AGE
 first-pod   1/1     Running   0          19s
 ```
-## expose the service endpoint
+## Expose the endpoint
 If you see the status of your pod as running,  it means Kubernetes has successfully created your pod and executed the dotnet command. How will you access the web api endpoint from outside? For this, you have to expose and the pod through a port. The following command exposes your pod through a port.
 ```
 kubectl expose pod first-pod --type=NodePort
