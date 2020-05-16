@@ -25,11 +25,27 @@ RUN dotnet build "webapiapp.csproj" -c Release -o /app/build
 You can easily move the Dockerfile to the parent directory of your project or change the Dockerfile as shown below. Here we are copying the csproj and all the files in the current directory to the webapiapp directory before executing the dotnet restore command.
 
 ```
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
 COPY ["webapiapp.csproj", "webapiapp/"]
 COPY ./ webapiapp/
 RUN dotnet restore "webapiapp/webapiapp.csproj"
+
+WORKDIR "/src/webapiapp"
+RUN dotnet build "webapiapp.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "webapiapp.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "webapiapp.dll"]
 ```
 ## Build the docker images
 Once you have fixed the Dockerfile execute the command below to build the docker image. This command will build the docker image with name webapiapp and label dev.
