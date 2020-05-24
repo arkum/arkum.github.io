@@ -9,7 +9,7 @@ Of the many features Microsoft Azure has released over the last year or so, i mu
 
 ## Create Azure web app
 I have deployed the sample weather API to an Azure Web app. While creating the ASP.NET core web api project in Visual Studio, i selected the option to enable authentication with Azure AD. Visual studio will create the app registrations and configure the Web App to validate the token. This step will work only if you have permissions to create App registrations in your active directory. I have also added and configured the swashbuckle Nuget package to the Visual Studio project. This makes it easier to import the API into the Azure API manager.
-![Azure AD Registration][3]
+![Azure AD Registration][3]{: .img-fluid}
 ## Create API in Azure API Manager
 For the managed identity to work, you must make sure that managed identity is enabled for both the participating services. In our case managed identity should be turned on for API Manager and Azure Web App. When you turn on managed identity (for some services it is still called managed service identity) Azure creates the registrations for your applications in the Azure Active directory. However, you won't be able to see this registrations under App registrations in Azure Active Directory. Instead they are available under Enterprise Applications area in your Azure Active Directory. 
 
@@ -23,8 +23,8 @@ You specify one of your operations in Azure API Manager to use managed identity 
     </inbound>
 ``` 
 If you test your application from the Azure API Manager portal and look at the trace, you can see Azure API Manager trying to get a token and passing it with the header as a bearer token
-![Azure AD token call][1]
-![Azure AD bearer token][2]
+![Azure AD token call][1]{: .img-fluid}
+![Azure AD bearer token][2]{: .img-fluid}
 ## Gotchas
 In this example we used Azure Web Apps as a backend for the Azure API manager. If your backend is an Azure Function, it will work the same way as the Azure Web App. However, the managed identity does not work for Azure Service Bus. Azure Service Bus has an HTTP endpoint and you can expose an endpoint using Azure API manager. This is a great enabler for clients which are not capable of implementing a queue client. Azure Service Bus does not support managed idenity. As you have seen, managed identity sends the token as a Bearer token in the Authorization header. Service bus HTTP endpoint expects a WRAP access token. Hence the service bus won't recognise the token Azure API manager is sending.
 
