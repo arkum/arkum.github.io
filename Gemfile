@@ -9,6 +9,9 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 gem "jekyll", "~> 3.8.5"
+gem "kramdown", ">= 2.3.1"
+gem "nokogiri", ">= 1.11.4"
+
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
