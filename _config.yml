@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Software Architect, mere mortal 
 author:             Arun
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://iunknownme.com/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://arunkumar.cloud/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ar_kumar
 github_username:  arkum
 linkedin_username: ar-kumar
@@ -28,6 +28,9 @@ google_analytics:   UA-43274713-1 # out your google-analytics code
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 #theme: jekyll-theme-clean-blog
 remote_theme: arkum/startbootstrap-clean-blog-jekyll
 paginate:           5
