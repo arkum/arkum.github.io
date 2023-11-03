@@ -33,7 +33,7 @@ Imagine this fictitious conversation between the business development manager an
 
 “That is a good option, but they might not be able to develop such a complex piece of software”
 
-“Common, what complexity you are talking, (thinking, this idiot will not let me meet my number and go on vacation), i was also a programmer 20 years back. I developed this software ….” (blah… blah…unleashes his verbiage which has been repeated 200 times).
+“Come on, what complexity you are talking, (thinking, this idiot will not let me meet my number and go on vacation), i was also a programmer 20 years back. I developed this software ….” (blah… blah…unleashes his verbiage which has been repeated 200 times).
 
 “I feel it is too risky, these are mission critical software, people’s life will depend on the code that we write”
 
@@ -41,7 +41,7 @@ Imagine this fictitious conversation between the business development manager an
 
 Since there was a deadlock, the issue was escalated to the so called LT (leadership team) and a high level meeting was called. The bosses made it very clear, at any cost we have to get it done. Cost? which could be people dying because of the code you write?
 
-“Common we do test our code, is it? this company has strict quality procedure. And the company XYZ will also have procedures to ensure quality”.
+“Come on we do test our code, is it? this company has strict quality procedure. And the company XYZ will also have procedures to ensure quality”.
 
 And the sensible guy was given a last piece of advise, “There are two kinds of people, people who find solutions for every problem and people who find problems in every solution”
 
