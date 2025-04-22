@@ -8,7 +8,7 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 3.8.5"
+gem "jekyll", "~> 4.4.1"
 gem "kramdown", ">= 2.3.1"
 gem "nokogiri", ">= 1.13.4"
 
